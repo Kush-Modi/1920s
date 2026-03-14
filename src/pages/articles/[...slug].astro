@@ -1,23 +1,20 @@
 ---
+import { getCollection } from 'astro:content';
+import { formatDate } from "../../utils";
 import MainLayout from "../../layouts/MainLayout.astro";
 import Tags from "../../components/ui/Tags.astro";
-import { getEntry } from 'astro:content';
-import { formatDate } from "../../utils";
 
 import "../../styles/global.css";
 
-const { slug } = Astro.params;
-
-if(slug === undefined) {
-  throw new Error('Slug is required');
+export async function getStaticPaths() {
+  const allBlogArticles = await getCollection('blog');
+  return allBlogArticles.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
-const entry = await getEntry('blog', slug);
-
-if(entry === undefined) {
-  return Astro.redirect('/404');
-}
-
+const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
