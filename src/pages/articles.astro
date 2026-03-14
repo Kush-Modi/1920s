@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../layouts/MainLayout.astro";
+import ArticleCard from "../components/ui/ArticleCard.astro";
+
+const allBlogArticles = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const title = "Articles | nineteentwentys";
+const description = "Explore our latest insights, news, and digital marketing strategies.";
+---
+
+<MainLayout title={title} description={description}>
+  <main class="py-16 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-6">
+    <div class="text-center mb-16">
+      <h1 class="mb-4 text-5xl font-medium leading-none tracking-tight md:text-6xl">Our Articles</h1>
+      <p class="text-xl font-normal leading-7 mx-auto max-w-3xl">
+        Insights and strategies from the forefront of digital marketing.
+      </p>
+    </div>
+
+    <div class="grid gap-12 lg:grid-cols-2">
+      {allBlogArticles.map((article) => (
+        <ArticleCard article={article} />
+      ))}
+    </div>
+  </main>
+</MainLayout>
