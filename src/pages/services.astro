@@ -1,6 +1,5 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import SectionTitle from "../components/ui/SectionTitle.astro";
 import Card from "../components/ui/Card.astro";
 import ServiceCard from "../components/ui/ServiceCard.astro";
 
@@ -88,7 +87,7 @@ const services = [
     </div>
     
     <div class="space-y-24">
-      {services.map((service, index) => (
+      {services.map((service) => (
         <div class="service-item">
           <div class="mb-12">
             <ServiceCard

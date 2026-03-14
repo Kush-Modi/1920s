@@ -33,6 +33,7 @@ export function initVideoScroll() {
   }
 
   function updateVideoPlayback() {
+    if (!container || !video) return;
 
     const scrollY = window.scrollY;
     const containerTop = container.offsetTop;

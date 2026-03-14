@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import Footer from "../components/ui/Footer.astro";
 import Navbar from "../components/ui/Navbar.astro";
 import MainHead from "./MainHead.astro";
@@ -14,7 +14,7 @@ const { ...props } = Astro.props;
 
   <MainHead {...props} />
 
-  <ViewTransitions />
+  <ClientRouter />
 
   <style>
     html.lenis {
@@ -46,7 +46,7 @@ const { ...props } = Astro.props;
 
   <Footer />
 
-<script type="module">
+<script is:inline type="module">
 import Lenis from "https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.mjs";
 
 /* create global lenis instance */

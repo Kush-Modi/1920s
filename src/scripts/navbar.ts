@@ -13,6 +13,7 @@ export function initNavbar() {
   let isOpen = false;
 
   function openMenu() {
+    if (!mobileMenu || !toggle) return;
     mobileMenu.classList.remove("hidden");
 
     if (openIcon instanceof HTMLElement) {
@@ -29,6 +30,7 @@ export function initNavbar() {
   }
 
   function closeMenu() {
+    if (!mobileMenu || !toggle) return;
     mobileMenu.classList.add("hidden");
 
     if (openIcon instanceof HTMLElement) {
