@@ -11,18 +11,24 @@ export default {
     },
     extend: {
       fontFamily: {
-        grotesk: ["Grotesk", "sans-serif"],
+        boska: ["Boska", "serif"],
+        "general-sans": ["General Sans", "sans-serif"],
       },
       fontWeight: {
         regular: 400,
         medium: 500,
+        semibold: 600,
+        bold: 700,
       },
       colors: {
-        green: "var(--green)",
-        black: "var(--black)",
-        dark: "var(--dark)",
-        gray: "var(--gray)",
-        white: "var(--white)",
+        black: "#000000",
+        white: "#ffffff",
+        gray: {
+          light: "#f5f5f5",
+          medium: "#e5e5e5",
+          dark: "#666666",
+        },
+        accent: "#000000",
       },
     },
   },

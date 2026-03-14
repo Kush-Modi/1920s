@@ -1,101 +1,121 @@
 ---
-import { Image } from "astro:assets";
-import decorForm from "../../assets/pics/contact-pic.png";
 ---
 
 <div
-  class="flex relative justify-start items-center p-[60px] bg-[#F3F3F3] rounded-[45px] overflow-hidden"
+  class="relative bg-gray-light rounded-[60px] p-8 md:p-20 overflow-hidden group"
 >
-  <form class="bg-gray sm:p-6 h-full w-full lg:max-w-lg">
-    <div class="flex flex-col sm:flex-row gap-[35px] sm:items-center mb-10">
-      <div class="flex items-center gap-[14px]">
+  <form class="relative z-10 w-full lg:max-w-2xl space-y-8">
+    <div class="flex flex-wrap gap-8 items-center mb-12">
+      <div class="custom-radio">
         <input
-          type="checkbox"
+          type="radio"
           id="checkbox1"
-          name="checkbox1"
-          class="form-checkbox text-black"
+          name="contact-type"
+          value="say-hi"
+          checked
         />
-        <label for="checkbox1" class="text-black">Say Hi</label>
+        <label for="checkbox1" class="font-general-sans text-xl font-medium cursor-pointer">Say Hi</label>
       </div>
-      <div class="flex items-center gap-[14px]">
+      <div class="custom-radio">
         <input
-          type="checkbox"
+          type="radio"
           id="checkbox2"
-          name="checkbox2"
-          class="form-checkbox text-black"
+          name="contact-type"
+          value="get-quote"
         />
-        <label for="checkbox2" class="flex items-center text-black"
-          >Get a Quote</label
-        >
+        <label for="checkbox2" class="font-general-sans text-xl font-medium cursor-pointer">Get a Quote</label>
       </div>
     </div>
 
-    <div class="mb-4">
-      <label for="name" class="block text-black mb-2">Name*</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Name"
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
-      />
+    <div class="space-y-6">
+        <div>
+          <label for="name" class="block font-boska text-2xl mb-3">Name*</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            class="w-full px-8 py-5 border border-black/10 rounded-[24px] bg-white text-black outline-none focus:border-black transition-colors font-general-sans text-lg"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block font-boska text-2xl mb-3">Email*</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            class="w-full px-8 py-5 border border-black/10 rounded-[24px] bg-white text-black outline-none focus:border-black transition-colors font-general-sans text-lg"
+          />
+        </div>
+
+        <div>
+          <label for="message" class="block font-boska text-2xl mb-3">Message*</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Message"
+            rows="4"
+            class="w-full px-8 py-5 border border-black/10 rounded-[24px] bg-white text-black outline-none focus:border-black transition-colors font-general-sans text-lg resize-none"
+          ></textarea>
+        </div>
     </div>
 
-    <div class="mb-4">
-      <label for="email" class="block text-black mb-2">Email*</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email"
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
-      />
-    </div>
-
-    <div class="mb-4">
-      <label for="message" class="block text-black mb-2">Message*</label>
-      <textarea
-        id="message"
-        name="message"
-        placeholder="Message"
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
-      ></textarea>
-    </div>
-
-    <button type="submit" name="submit" class="btn-primary w-full">Send</button>
+    <button type="submit" class="btn-primary w-full py-5 text-xl">
+        Send Message
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+    </button>
   </form>
-  <picture class="absolute right-[-25%] top-[2%] bottom-[2%] hidden lg:block">
-    <Image src={decorForm} alt="decor" />
-  </picture>
+  
+  <div class="hidden lg:block absolute right-[-5%] top-1/2 -translate-y-1/2 w-1/3">
+    <div class="relative">
+        <div class="absolute inset-0 bg-black/5 rounded-full blur-3xl scale-150"></div>
+        <img src="/images/contact-pic.png" alt="Contact Illustration" class="relative w-full h-auto grayscale brightness-90 group-hover:grayscale-0 transition-all duration-700" />
+    </div>
+  </div>
 </div>
+
 <style>
-  .form-checkbox {
-    appearance: none;
-    width: 28px;
-    height: 28px;
-    border: 1px solid #000;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
+  .custom-radio input {
+    display: none;
+  }
+  .custom-radio label {
     position: relative;
+    padding-left: 45px;
   }
-
-  .form-checkbox:before {
+  .custom-radio label::before {
     content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
     position: absolute;
-    top: 0;
     left: 0;
-    background: var(--green);
-    transform: scale(0);
-    transition: transform 0.1s ease-in-out;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s;
   }
-
-  .form-checkbox:checked:before {
-    transform: scale(0.6);
+  .custom-radio label::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: black;
+    transition: all 0.3s;
+  }
+  .custom-radio input:checked + label::before {
+    border-color: black;
+  }
+  .custom-radio input:checked + label::after {
+    transform: translateY(-50%) scale(1);
   }
 </style>
 <script>

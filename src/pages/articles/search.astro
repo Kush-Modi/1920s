@@ -9,27 +9,28 @@ const query: string | null = Astro.url.searchParams.get('query');
 
 const allBlogArticles: CollectionEntry<'blog'>[] = await getCollection('blog');
 
+const safeQuery = query || "";
+
 // Filter articles based on query
 const searchResults = allBlogArticles.filter(article => {
   const titleMatch: boolean = article.data.title
     .toLowerCase()
-    .includes(query!.toLowerCase());
+    .includes(safeQuery.toLowerCase());
 
     const bodyMatch: boolean = article.body
     .toLowerCase()
-    .includes(query!.toLowerCase());
+    .includes(safeQuery.toLowerCase());
 
     const slugMatch: boolean = article.slug
     .toLowerCase()
-    .includes(query!.toLowerCase());
+    .includes(safeQuery.toLowerCase());
 
     return titleMatch || bodyMatch || slugMatch
 });
 ---
 
 <MainLayout title="Search Results">
-	<main class="space-y-20">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div class="py-16 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-6">
 
             <a href="/articles" class="inline-flex items-center font-medium text-black hover:text-green my-4">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
@@ -42,12 +43,11 @@ const searchResults = allBlogArticles.filter(article => {
             <br>
             <SearchForm />
             <br>
-            <h2 class="text-2xl pb-3 mt-6">Results For <strong>{query}</strong></h2>
+            <h2 class="text-2xl pb-3 mt-6">Results For <strong>{safeQuery}</strong></h2>
             <div class="grid gap-8 lg:grid-cols-2">
               {searchResults.map(article => (
                 <ArticleCard article={article} />
               ))}
             </div>  
         </div>
-	</main>
 </MainLayout>

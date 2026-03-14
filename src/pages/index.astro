@@ -1,21 +1,31 @@
 ---
-import Cases from "../components/sections/Cases.astro";
-import Contact from "../components/sections/Contact.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+
+import IntroVideo from "../components/sections/IntroVideo.astro";
 import Hero from "../components/sections/Hero.astro";
-import Process from "../components/sections/Process.astro";
-import Proposal from "../components/sections/Proposal.astro";
-import Services from "../components/sections/Services.astro";
+
 import Sponsors from "../components/sections/Sponsors.astro";
+import Services from "../components/sections/Services.astro";
+import Proposal from "../components/sections/Proposal.astro";
+import Cases from "../components/sections/Cases.astro";
+import Process from "../components/sections/Process.astro";
 import Team from "../components/sections/Team.astro";
 import Testimonials from "../components/sections/Testimonials.astro";
-import MainLayout from "../layouts/MainLayout.astro";
+import Contact from "../components/sections/Contact.astro";
 ---
 
 <MainLayout
-  title="Positivus"
-  description="A beautiful and functional landing page design created specifically for digital marketing agencies. With its clean and modern design, Positivus is the perfect template to showcase your agency's services and case studies to potential clients. Built with astro and tailwindcss"
+  title="nineteentwentys"
+  description="Modern digital marketing agency website built with Astro and Tailwind. Showcases services, case studies, and growth strategies for businesses."
 >
-  <Hero />
+
+  <IntroVideo />
+
+  <!-- Hero section wrapped for transition control -->
+  <div id="hero-section" class="opacity-0 transition-opacity duration-700 relative z-10">
+    <Hero />
+  </div>
+
   <Sponsors />
   <Services />
   <Proposal />
@@ -24,4 +34,5 @@ import MainLayout from "../layouts/MainLayout.astro";
   <Team />
   <Testimonials />
   <Contact />
+
 </MainLayout>

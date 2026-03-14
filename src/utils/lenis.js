@@ -1,6 +1,6 @@
 import Lenis from "lenis";
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("astro:page-load", function () {
   const lenis = new Lenis();
 
   function raf(time) {

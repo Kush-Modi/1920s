@@ -11,133 +11,108 @@ const processedTestimonials = Testimonials.map((item, index, array) => ({
 <div
   id="ProjectSlider"
   class="swiper mt-10"
-  style={{
-    "--swiper-pagination-color": "var(--green)",
-    "--swiper-pagination-bullet-inactive-color": "#fff",
-    "--swiper-pagination-bullet-inactive-opacity": "1",
-    "--swiper-pagination-bullet-size": "19px",
-    "--swiper-pagination-bullet-horizontal-gap": "10px",
-  }}
+  style="--swiper-pagination-color: #000; --swiper-pagination-bullet-inactive-color: #ccc; --swiper-pagination-bullet-inactive-opacity: 0.3; --swiper-pagination-bullet-size: 8px; --swiper-pagination-bullet-horizontal-gap: 8px;"
 >
-  <div class="swiper-wrapper mt-[84px] mb-[124px]" data-cursor="swipe">
+  <div class="swiper-wrapper mt-16 mb-24" data-cursor="swipe">
     {
       processedTestimonials.map((item) => (
         <div
-          class="swiper-slide text-gray flex flex-col"
+          class="swiper-slide flex flex-col"
           role="group"
           aria-label={`${item.index} / ${item.length}`}
         >
-          <div class="flex flex-col justify-center items-center py-[48px] px-6 sm:px-[52px]">
-            <p class="bubble">
-              "{item.comment}"
+          <div class="flex flex-col p-10 md:p-16 bg-white rounded-[40px] border border-black/5 shadow-sm transform transition-transform duration-500 hover:shadow-xl mx-4">
+            <div class="mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-black/20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H13.017V21H14.017ZM6.017 21L6.017 18C6.017 16.8954 6.91243 16 8.017 16H11.017C11.5693 16 12.017 15.5523 12.017 15V9C12.017 8.44772 11.5693 8 11.017 8H8.017C7.46472 8 7.017 8.44772 7.017 9V12C7.017 12.5523 6.5693 13 6.017 13H5.017V21H6.017Z" />
+                </svg>
+            </div>
+            
+            <p class="font-boska text-2xl md:text-3xl leading-relaxed italic mb-10 text-black/90">
+              {item.comment}
             </p>
-          </div>
-          <div class="w-full px-10 sm:px-20 ">
-            <div class="text-green font-medium">{item.name}</div>
-            <div>{item.role}</div>
+            
+            <div class="flex items-center gap-4">
+                <div class="w-px h-12 bg-black/10"></div>
+                <div>
+                   <div class="font-boska text-xl font-medium text-black">{item.name}</div>
+                   <div class="font-general-sans text-sm text-gray-dark uppercase tracking-widest">{item.role}</div>
+                </div>
+            </div>
           </div>
         </div>
       ))
     }
   </div>
-  <div class="flex justify-around lg:justify-center mb-[68px] lg:gap-[189px]">
-    <div class="swiper-button-prev w-7 h-7 sm:w-10 sm:h-10">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-        ><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          fill="#ffffff"
-          d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
-        ></path></svg
-      >
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-next w-7 h-7 sm:w-10 sm:h-10 rotate-180">
-      <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 448 512">
-        <path
-          fill="#ffffff"
-          d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
-        ></path></svg
-      >
-    </div>
+  
+  <div class="flex items-center justify-center gap-12 mb-10">
+    <button class="swiper-button-prev-custom group flex items-center justify-center w-14 h-14 rounded-full border border-black/10 hover:bg-black transition-all">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    
+    <div class="swiper-pagination-custom"></div>
+    
+    <button class="swiper-button-next-custom group flex items-center justify-center w-14 h-14 rounded-full border border-black/10 hover:bg-black transition-all">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
   </div>
 </div>
+
 <script>
+  import Swiper from "swiper";
+  import { Pagination, Navigation, Autoplay } from "swiper/modules";
   import "swiper/css";
   import "swiper/css/pagination";
-  import Swiper from "swiper";
-  import { Pagination, Navigation } from "swiper/modules";
-  import { register } from "swiper/element/bundle";
-  register();
 
-  Swiper.use([Pagination, Navigation]);
+  function swiperSetup() {
+    new Swiper("#ProjectSlider", {
+      modules: [Pagination, Navigation, Autoplay],
+      pagination: {
+        el: ".swiper-pagination-custom",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next-custom",
+        prevEl: ".swiper-button-prev-custom",
+      },
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      slidesPerView: 1,
+      centeredSlides: true,
+      spaceBetween: 30,
+      breakpoints: {
+        1024: {
+          slidesPerView: 2,
+        }
+      },
+    });
+  }
 
-  new Swiper("#ProjectSlider", {
-    modules: [Pagination, Navigation],
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    loop: true,
-    autoplay: false,
-    grabCursor: false,
-    mousewheel: false,
-    slidesPerView: 2,
-    centeredSlides: true,
-    spaceBetween: 50,
-    breakpoints: {
-      1024: {
-        slidesPerView: 2,
-      },
-      320: {
-        slidesPerView: 1,
-      },
-    },
-  });
+  swiperSetup();
+  document.addEventListener("astro:after-swap", swiperSetup);
 </script>
-<style>
-  .bubble {
-    position: relative;
-    padding: 8%;
-    background-color: var(--dark);
-    color: var(--gray);
-    border-radius: 45px;
-    border: 1px solid var(--green);
-  }
-  .bubble:after {
-    content: "";
-    position: absolute;
-    bottom: -20px; /* Adjust this value to move the arrow up or down */
-    left: 50px; /* Adjust this value to move the arrow left or right */
-    border-width: 22px; /* Adjust this value to change the size of the arrow */
-    border-style: solid;
-    border-color: var(--dark) transparent transparent var(--dark);
-  }
-  .bubble:before {
-    content: "";
-    position: absolute;
-    bottom: -40px; /* This should be 2px more than the bottom value of .bubble:after */
-    left: 48px; /* This should be 1px less than the left value of .bubble:after */
-    border-width: 20px; /* Adjust this to match the border-width of .bubble:after */
-    border-style: solid;
-    border-color: var(--green) transparent transparent var(--green);
-  }
-  .swiper-wrapper {
-    position: relative;
-  }
-  .swiper-slide {
+
+<style is:global>
+  .swiper-pagination-custom {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 500ms ease-in-out;
+    gap: 8px;
   }
-  .swiper-pagination {
-    display: flex;
-    align-items: center;
-    width: auto !important;
-    position: static !important;
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #000 !important;
+    opacity: 0.1;
+    transition: all 0.3s;
+    border-radius: 50%;
+  }
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.5);
   }
 </style>

@@ -1,0 +1,36 @@
+---
+const {
+  title,
+  description,
+  url = Astro.url,
+  image,
+  frontmatter,
+  robots,
+} = Astro.props;
+
+const seoTitle = title || frontmatter?.title || "nineteentwentys";
+const seoDescription = description || frontmatter?.description || "Modern digital marketing agency";
+const seoImage = image || "/images/og-image.png";
+const seoRobots = robots || (frontmatter?.robots ? "index, follow" : "index, follow");
+---
+
+<!-- Global Metadata -->
+<meta name="title" content={seoTitle} />
+<meta name="description" content={seoDescription} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={seoTitle} />
+<meta property="og:description" content={seoDescription} />
+<meta property="og:image" content={seoImage} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={url} />
+<meta property="twitter:title" content={seoTitle} />
+<meta property="twitter:description" content={seoDescription} />
+<meta property="twitter:image" content={seoImage} />
+
+<!-- Robots -->
+{robots && <meta name="robots" content={seoRobots} />}

@@ -1,137 +1,63 @@
+@import url('https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500,600,700,900&f[]=general-sans@200,300,400,500,600,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: "Grotesk";
-    src: url("/fonts/grotesk/SpaceGrotesk-Regular.woff"), format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  :root {
+    --black: #000000;
+    --dark: #000000;
+    --white: #ffffff;
+    --gray-light: #f5f5f5;
+    --gray-medium: #e5e5e5;
+    --gray-dark: #666666;
+    --accent: #000000;
+    
+    /* Font stacks */
+    --font-header: 'Boska', serif;
+    --font-body: 'General Sans', sans-serif;
   }
 
-  @font-face {
-    font-family: "Grotesk";
-    src: url("/fonts/grotesk/SpaceGrotesk-Medium.woff"), format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  body {
+    @apply font-general-sans bg-white text-black antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-boska font-medium tracking-tight;
   }
 
   .font-outline {
-    -webkit-text-stroke: 2.5px black;
+    -webkit-text-stroke: 1.5px black;
     background-color: transparent;
   }
-  .font-outline-sm {
-    -webkit-text-stroke: 1.2px black;
-    background-color: transparent;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-black text-white rounded-full px-8 py-4 transition-all duration-300 font-general-sans font-medium flex items-center justify-center gap-2;
+  }
+  .btn-primary:hover {
+    @apply bg-zinc-800 transform -translate-y-1 shadow-lg;
   }
 
-  :root {
-    --green: #b9ff66;
-    --black: rgb(0, 0, 0);
-    --dark: #191a23;
-    --gray: #f3f3f3;
-    --white: #ffffff;
+  .btn-secondary {
+    @apply bg-white text-black px-8 py-4 rounded-full border border-black transition-all duration-300 font-general-sans font-medium flex items-center justify-center gap-2;
+  }
+  .btn-secondary:hover {
+    @apply bg-black text-white transform -translate-y-1 shadow-lg;
   }
 
-  /* @layer base {
-    * {
-      box-sizing: border-box;
-      font-family: "Grotesk", sans-serif;
-      scroll-behavior: smooth;
-    }
+  .btn-pill {
+    @apply border border-black/10 px-4 py-1 rounded-full text-sm font-general-sans uppercase tracking-wider transition-all hover:bg-black hover:text-white;
+  }
 
-    body {
-      font-size: 20px;
-    }
+  .section-tag {
+    @apply bg-black text-white px-4 py-1 rounded-full font-boska text-lg mb-4 inline-block;
+  }
 
-    p {
-      font-size: 1rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      line-height: 120%;
-      font-weight: 500;
-    }
-
-    h2 {
-      font-size: 2rem;
-      font-weight: 500;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-    }
-
-    h4 {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    @media (max-width: 640px) {
-      body {
-        font-size: 16px;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      h1 {
-        font-size: 2.688rem;
-      }
-
-      h2 {
-        font-size: 2.25rem;
-      }
-
-      h3 {
-        font-size: 1.625rem;
-      }
-
-      h4 {
-        font-size: 1.125rem;
-      }
-    }
-  } */
-
-  @layer components {
-    .btn-primary {
-      @apply bg-dark text-white rounded-lg px-[35px] py-5 transition-all duration-200;
-    }
-    .btn-primary:hover {
-      @apply bg-green text-black transform scale-105;
-    }
-
-    .btn-secondary {
-      @apply bg-transparent text-black px-[35px] py-5 rounded-lg border border-solid border-black transition-all duration-200;
-    }
-    .btn-secondary:hover {
-      @apply bg-black text-white border-green transform scale-105;
-    }
-
-    .btn-tertiary {
-      @apply bg-green text-black rounded-lg px-[35px] py-5 transition-all duration-200;
-    }
-    .btn-tertiary:hover {
-      @apply bg-white text-black transform scale-105;
-    }
-
-    .greenhead {
-      @apply bg-green text-black rounded-[7px] px-[7px];
-    }
-
-    .whitehead {
-      @apply bg-white text-black rounded-[7px] px-[7px];
-    }
-
-    .blackhead {
-      @apply bg-black text-white rounded-[7px] px-[7px];
-    }
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
   }
 }
 

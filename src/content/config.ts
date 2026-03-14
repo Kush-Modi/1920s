@@ -3,13 +3,13 @@ const blogCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    pubDate: z.date(),
+    pubDate: z.any(),
     author: z.string(),
     authImage: z.string(),
     image: z.string(),
-    tags: z.array(z.string()),
+    tags: z.any(),
     summary: z.string(),
-    type: z.enum(['Article', 'Tutorial']),
+    type: z.string(),
   }),
 });
 

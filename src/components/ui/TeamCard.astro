@@ -1,24 +1,32 @@
 ---
-import { Image } from "astro:assets";
-import linkd from "../../assets/pics/profile-in.svg";
 import Card from "./Card.astro";
 
 const { pic, name, role, description, link } = Astro.props;
 ---
 
-<Card isUnderline={true}>
-  <div class="p-[60px]">
-    <div class="flex flex-col sm:flex-row relative">
-      <picture><Image src={pic} alt={name} /></picture>
-      <div class="flex flex-col justify-end sm:ml-5">
-        <h3 class="text-lg font-medium">{name}</h3>
-        <p class="text-sm font-normal">{role}</p>
+<div class="group relative bg-white border border-black/5 rounded-[40px] p-8 md:p-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+  <div class="flex flex-col gap-8">
+    <div class="flex items-end justify-between">
+      <div class="flex items-center gap-6">
+        <div class="relative w-24 h-24 md:w-28 md:h-28 overflow-hidden rounded-[30px] border border-black/5">
+            <img src={pic} alt={name} class="w-full h-full object-cover grayscale brightness-95 group-hover:grayscale-0 transition-all duration-700" />
+        </div>
+        <div class="flex flex-col">
+          <h3 class="font-boska text-3xl md:text-4xl leading-tight">{name}</h3>
+          <p class="font-general-sans text-gray-dark font-medium opacity-70">{role}</p>
+        </div>
       </div>
-      <a href={link} class="absolute right-0 top-0"
-        ><Image src={linkd} alt="Linkedin Logo" /></a
-      >
+      <a href={link} class="w-12 h-12 rounded-2xl bg-black flex items-center justify-center transition-transform hover:scale-110 active:scale-95" target="_blank" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+      </a>
     </div>
-    <div class="w-full h-[1px] bg-black my-7"></div>
-    <div>{description}</div>
+    
+    <div class="w-full h-px bg-black/5"></div>
+    
+    <p class="font-general-sans text-lg text-gray-dark leading-relaxed">
+      {description}
+    </p>
   </div>
-</Card>
+</div>

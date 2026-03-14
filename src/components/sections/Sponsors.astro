@@ -1,35 +1,39 @@
 ---
-import { Image } from "astro:assets";
-import s1 from "../../assets/company/company-logo1.svg";
-import s2 from "../../assets/company/company-logo2.svg";
-import s3 from "../../assets/company/company-logo3.svg";
-import s4 from "../../assets/company/company-logo4.svg";
-import s5 from "../../assets/company/company-logo5.svg";
-import s6 from "../../assets/company/company-logo6.svg";
 import Section from "./Section.astro";
 
 const sponsors = [
-  { logo: s6, alt: "Amazon logo" },
-  { logo: s5, alt: "Dribble logo" },
-  { logo: s4, alt: "HubSpot logo" },
-  { logo: s3, alt: "Notion logo" },
-  { logo: s2, alt: "Netflix logo" },
-  { logo: s1, alt: "Zoom logo" },
+  { logo: "/icons/company-logo1.svg", alt: "Zoom" },
+  { logo: "/icons/company-logo2.svg", alt: "Netflix" },
+  { logo: "/icons/company-logo3.svg", alt: "Notion" },
+  { logo: "/icons/company-logo4.svg", alt: "HubSpot" },
+  { logo: "/icons/company-logo5.svg", alt: "Dribbble" },
+  { logo: "/icons/company-logo6.svg", alt: "Amazon" },
 ];
 ---
 
 <Section id="sponsors">
-  <div class="flex-row items-center">
-  <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6">
-    {
-      sponsors.map((sponsor) => {
-        return (
-          <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-            <Image src={sponsor.logo} class="h-12 w-auto mx-auto" alt={sponsor.alt} loading="lazy" />
-          </div>
-        );
-      })
-    }
+
+  <div class="py-12 border-y border-black/5">
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 items-center opacity-50 hover:opacity-100 transition-opacity duration-500">
+
+      {sponsors.map((sponsor) => (
+
+        <div class="flex justify-center transition-transform duration-300 hover:scale-110">
+
+          <img
+            src={sponsor.logo}
+            alt={`${sponsor.alt} logo`}
+            loading="lazy"
+            class="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+          />
+
+        </div>
+
+      ))}
+
+    </div>
+
   </div>
-  </div> 
+
 </Section>

@@ -1,13 +1,10 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import Card from "../../components/ui/Card.astro";
-import { Image } from "astro:assets";
-
-import seoImg from "../../assets/pics/card-pic1.png";
-import icon1 from "../../assets/icon1.svg";
-import icon2 from "../../assets/icon2.svg";
-import icon3 from "../../assets/icon3.svg";
-import icon4 from "../../assets/icon4.svg";
+const icon1 = "/icons/icon1.svg";
+const icon2 = "/icons/icon2.svg";
+const icon3 = "/icons/icon3.svg";
+const icon4 = "/icons/icon4.svg";
 
 const faqItems = [
   {
@@ -57,7 +54,7 @@ const process = [
 ---
 
 <MainLayout 
-  title="SEO Services | Positivus" 
+  title="SEO Services | nineteentwentys" 
   description="Drive more organic traffic and improve your search rankings with our comprehensive SEO services. We help businesses increase their online visibility through strategic optimization."
 >
   <div class="py-16 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-6">
@@ -79,7 +76,7 @@ const process = [
       </div>
       <div class="relative">
         <div class="bg-green rounded-[45px] p-4 md:p-8 relative z-10">
-          <Image src={seoImg} alt="SEO Services" class="w-full h-auto rounded-[35px]" />
+          <img src="/images/card-pic1.png" alt="SEO Services" class="w-full h-auto rounded-[35px]" />
         </div>
         <div class="absolute top-8 left-8 right-8 bottom-8 bg-dark rounded-[45px] -z-10"></div>
       </div>
@@ -215,7 +212,7 @@ const process = [
               {index + 1}
             </div>
             <div class="mb-4">
-              <Image src={step.icon} alt={step.title} class="h-12 w-auto" />
+              <img src={step.icon} alt={step.title} class="h-12 w-auto" />
             </div>
             <h3 class="text-xl font-medium mb-4">{step.title}</h3>
             <p>{step.description}</p>

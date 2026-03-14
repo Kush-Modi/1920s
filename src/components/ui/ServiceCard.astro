@@ -1,9 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import Card from "./Card.astro";
 
-import gob from "../../assets/icon6.svg";
-import wob from "../../assets/icon7.svg";
+const gob = "/icons/icon6.svg";
+const wob = "/icons/icon7.svg";
 
 /* 
 1. Gray card with green title and green on black icon 
@@ -14,38 +13,43 @@ import wob from "../../assets/icon7.svg";
 const { index, titleTop, titleBottom, img, alt, link } = Astro.props;
 ---
 
-<Card isUnderline={true}>
-  <div
-    class=`h-[300px] w-full sm:h-full lg:gap-[60px] grid custom-grid lg:grid-cols-2 lg:grid-rows-1 p-8 sm:p-[50px] rounded-[45px] ${index === 1 ? 'bg-gray' : index === 2 ? 'bg-green' : 'bg-dark text-gray'}`
-  >
-    <h3 class=`flex flex-col col-span-2 lg:col-span-1`>
-      <span class=`w-[fit-content] ${index === 1 ? 'greenhead' : 'whitehead'}`
-        >{titleTop}</span
-      >
-      <span class=`w-[fit-content] ${index === 1 ? 'greenhead' : 'whitehead'}`
-        >{titleBottom}</span
-      >
-    </h3>
-    <picture
-      class="w-full h-full row-span-1 order-1 lg:order-none lg:row-span-2 flex justify-center items-center"
-    >
-      <Image
-        src={img}
-        alt={alt}
-        class="h-[100px] w-auto sm:h-auto sm:w-3/4 object-cover"
-      />
-    </picture>
-    <div class="flex items-end">
-      <a href={link} class="flex items-center gap-3.5"
-        ><Image src={index === 1 || index === 2 ? gob : wob} alt={alt} />
-        <span class="hidden sm:block">Service Info</span></a
-      >
+<div class=`group relative overflow-hidden rounded-[40px] border border-black/5 transition-all duration-500 hover:shadow-2xl ${index % 2 === 0 ? 'bg-black text-white' : 'bg-white text-black'}`>
+  <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  
+  <div class="relative p-8 md:p-12 h-full flex flex-col justify-between z-10">
+    <div class="flex flex-col gap-6">
+      <div class="flex justify-between items-start">
+        <h3 class="font-boska text-4xl md:text-5xl leading-tight">
+          {titleTop} <br/>
+          <span class="italic font-light">{titleBottom}</span>
+        </h3>
+        <div class=`p-4 rounded-2xl ${index % 2 === 0 ? 'bg-white/10' : 'bg-black/5'}`>
+           <img src={index % 2 === 0 ? wob : gob} alt="Icon" class="w-8 h-8" />
+        </div>
+      </div>
+      
+      <p class=`text-lg opacity-70 font-general-sans max-w-[280px] ${index % 2 === 0 ? 'text-gray-medium' : 'text-gray-dark'}`>
+        Strategic solutions tailored to elevate your digital presence and drive measurable results.
+      </p>
+    </div>
+
+    <div class="mt-12 flex flex-col md:flex-row items-end md:items-center justify-between gap-8">
+        <a href={link} class=`group/link flex items-center gap-4 font-general-sans font-medium text-lg`>
+            <div class=`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 group-hover/link:translate-x-2 ${index % 2 === 0 ? 'border-white/20 group-hover/link:bg-white group-hover/link:text-black' : 'border-black/20 group-hover/link:bg-black group-hover/link:text-white'}`>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-[-45deg]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </div>
+            <span>Learn More</span>
+        </a>
+
+        <div class="relative w-48 h-32 md:w-56 md:h-40 overflow-hidden rounded-2xl transform transition-transform duration-700 group-hover:scale-110">
+            <img
+              src={img}
+              alt={alt}
+              class="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 transition-all duration-700"
+            />
+        </div>
     </div>
   </div>
-</Card>
-
-<style>
-  .custom-grid {
-    grid-template: auto auto;
-  }
-</style>
+</div>

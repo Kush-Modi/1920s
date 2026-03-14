@@ -1,16 +1,16 @@
 <form
-  class="bg-[#292A32] px-10 py-14 rounded-[14px] gap-5 h-full flex flex-col sm:flex-row items-center justify-center"
+  class="bg-zinc-900 px-8 py-10 rounded-[32px] gap-6 flex flex-col sm:flex-row items-center justify-center border border-white/5 shadow-2xl transition-all hover:bg-black"
 >
-  <div class="w-full sm:w-[55%]">
+  <div class="w-full sm:w-[60%]">
     <input
-      type="text"
-      id="email"
+      type="email"
+      id="email-subscribe"
       name="email"
-      placeholder="Email"
-      class="bg-transparent w-full px-[35px] py-5 border rounded-[14px] focus:outline-none"
+      placeholder="Email address"
+      class="bg-white/10 w-full px-8 py-4 border border-white/20 rounded-2xl text-white placeholder:text-white/40 focus:outline-none focus:border-white transition-all font-general-sans"
     />
   </div>
-  <button type="submit" name="submit" class="w-full sm:w-[45%] btn-tertiary"
-    >Subscribe to news</button
+  <button type="submit" class="w-full sm:w-[40%] btn-secondary py-4 !bg-white !text-black hover:!bg-zinc-200 border-none transition-transform active:scale-95"
+    >Subscribe Now</button
   >
 </form>

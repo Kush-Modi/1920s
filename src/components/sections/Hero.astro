@@ -1,23 +1,83 @@
 ---
 import Section from "./Section.astro";
-import { Image } from "astro:assets";
-import HeroIlust from "../../assets/pics/hero.svg";
 ---
 
 <Section id="home">
-<div class="relative flex flex-col-reverse items-center md:flex-row" id="hero">
-    <div class="row items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
-        <div class="text-left space-y-3">
-            <h1 class="text-4xl font-medium leading-none md:text-6xl text-center md:text-left">Navigating the <br> digital landscape <br> for success</h1>
-            <p class="mt-6 mb-8 text-lg font-normal leading-7 sm:mb-12 text-center md:text-left md:pr-12">Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
-            <div class="w-full justify-center md:justify-start items-center inline-flex">
-                <a href="https://github.com/manulthanura/Positivus" target="_blank" class="px-8 py-5 bg-zinc-900 hover:bg-white rounded-2xl text-center text-white hover:text-black border text-xl font-normal leading-7">Book a consultation
-                </a>
-            </div>
-        </div>
+
+  <div class="relative flex flex-col lg:flex-row items-center min-h-[70vh] gap-12">
+
+    <!-- LEFT CONTENT -->
+    <div class="flex flex-col items-start lg:w-7/12 space-y-8">
+
+      <div class="space-y-4">
+
+        <span class="btn-pill">
+          Digital Excellence Defined
+        </span>
+
+        <h1 class="text-5xl md:text-7xl lg:text-8xl xl:text-[92px] leading-[0.9] tracking-tight">
+          Navigating the <br />
+          <span class="font-light italic">Digital</span> landscape <br />
+          for <span class="font-outline">Success</span>
+        </h1>
+
+      </div>
+
+      <p class="text-xl md:text-2xl text-gray-dark max-w-xl leading-relaxed font-general-sans">
+        Our digital marketing agency helps businesses grow and succeed online
+        through strategic SEO, social media, and content creation.
+      </p>
+
+      <!-- BUTTONS -->
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+
+        <a
+          href="#contact"
+          class="group btn-primary py-5 px-10 text-xl flex items-center gap-3"
+        >
+          Get Started
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 transition-transform group-hover:translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+
+        </a>
+
+        <a
+          href="#services"
+          class="btn-secondary py-5 px-10 text-xl"
+        >
+          Our Services
+        </a>
+
+      </div>
+
     </div>
-    <div class="flex items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
-        <Image src={HeroIlust} alt="Hero Ilustration" loading="eager" />
+
+    <!-- RIGHT IMAGE -->
+    <div class="lg:w-5/12 relative group">
+
+      <div class="absolute inset-0 bg-black/5 rounded-[60px] blur-3xl transition-colors group-hover:bg-black/10"></div>
+
+      <div class="relative bg-white/40 backdrop-blur-sm border border-black/5 rounded-[60px] p-8 transition-transform duration-500 group-hover:scale-[1.02]">
+
+        <img
+          src="/images/hero.svg"
+          alt="Digital marketing illustration"
+          loading="eager"
+          class="w-full h-auto grayscale brightness-90 transition-all duration-700 hover:grayscale-0"
+        />
+
+      </div>
+
     </div>
-</div>
+
+  </div>
+
 </Section>
