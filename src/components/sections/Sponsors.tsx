@@ -2,17 +2,17 @@ import React from 'react';
 import Section from './Section';
 
 const sponsors = [
-  { logo: "/images/rivesa-ai.svg", alt: "Rivesa AI" },
-  { logo: "/images/nishkaam-innovations.svg", alt: "Nishkaam Innovations" },
-  { logo: "/images/excel-branding.svg", alt: "Excel Branding" },
-  { logo: "/images/student-housing.svg", alt: "Student Housing" },
-  { logo: "/images/youtube-creator-programs.svg", alt: "YouTube Creator Programs" },
-  { logo: "/images/timex.svg", alt: "Timex" },
-  { logo: "/images/google.svg", alt: "Google" },
-  { logo: "/images/oreo.svg", alt: "Oreo" },
-  { logo: "/images/blinkit.svg", alt: "Blinkit" },
-  { logo: "/images/flipkart.svg", alt: "Flipkart" },
-  { logo: "/images/zerodha.svg", alt: "Zerodha" },
+  { logo: "/images/RivesaLogo.svg", alt: "Rivesa AI" },
+  { logo: "/images/NishkaamLogo.svg", alt: "Nishkaam Innovations" },
+  { logo: "/images/ExcelBrandingLogo.svg", alt: "Excel Branding" },
+  { logo: "/images/StudentHousingLogo.svg", alt: "Student Housing" },
+  { logo: "/images/YoutubeCreatorsProgramLogo.svg", alt: "YouTube Creator Programs" },
+  { logo: "/images/TimexEyewearLogo.svg", alt: "Timex" },
+  { logo: "/images/GoogleLogo.svg", alt: "Google" },
+  { logo: "/images/OreoLogo.svg", alt: "Oreo" },
+  { logo: "/images/BlinkitLogo.svg.png", alt: "Blinkit" },
+  { logo: "/images/FlipkartLogo.svg.png", alt: "Flipkart" },
+  { logo: "/images/ZerodhaLogo.svg.png", alt: "Zerodha" },
 ];
 
 export default function Sponsors() {
