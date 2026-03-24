@@ -18,21 +18,22 @@ const sponsors = [
 export default function Sponsors() {
   return (
     <Section id="sponsors">
-      <div className="py-12 border-y border-black/5">
-        <div className="flex flex-wrap justify-center gap-12 lg:gap-16 items-center opacity-50 hover:opacity-100 transition-opacity duration-500 mb-8">
-          {sponsors.map((sponsor) => (
-            <div key={sponsor.alt} className="flex justify-center transition-transform duration-300 hover:scale-110">
-               {/* Using object tag temporarily as a fallback until SVG physically exists, but img tag is safer */}
-              <img
-                src={sponsor.logo}
-                alt={`${sponsor.alt} logo`}
-                loading="lazy"
-                className="h-8 max-w-[120px] object-contain grayscale hover:grayscale-0 transition-all duration-300"
-              />
-            </div>
-          ))}
+      <div className="py-12 border-y border-black/5 overflow-hidden">
+        <div className="relative flex w-full group">
+          <div className="flex w-max animate-marquee items-center mb-4">
+            {[...sponsors, ...sponsors].map((sponsor, idx) => (
+              <div key={`${sponsor.alt}-${idx}`} className="flex justify-center items-center flex-shrink-0 w-[180px] sm:w-[220px] transition-transform duration-300 group-hover:cursor-default px-6 gap-x-12">
+                <img
+                  src={sponsor.logo}
+                  alt={`${sponsor.alt} logo`}
+                  loading="lazy"
+                  className="h-10 md:h-[42px] max-w-[140px] object-contain transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="text-center font-general-sans text-sm text-gray-dark opacity-70 italic mt-6">
+        <div className="text-center font-general-sans text-sm text-gray-dark opacity-80 italic mt-8">
           Note: Represented via strategic collaborations, consulting, and framework development.
         </div>
       </div>
