@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default function Form() {
-  const [contactType, setContactType] = useState('say-hi');
+  const [contactType, setContactType] = useState('get-quote');
   const [message, setMessage] = useState('');
 
   const handleContactTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,24 +22,13 @@ export default function Form() {
             <div className="custom-radio">
               <input
                 type="radio"
-                id="checkbox1"
-                name="contact-type"
-                value="say-hi"
-                checked={contactType === 'say-hi'}
-                onChange={handleContactTypeChange}
-              />
-              <label htmlFor="checkbox1" className="font-general-sans text-xl font-medium cursor-pointer">Say Hi</label>
-            </div>
-            <div className="custom-radio">
-              <input
-                type="radio"
                 id="checkbox2"
                 name="contact-type"
                 value="get-quote"
                 checked={contactType === 'get-quote'}
                 onChange={handleContactTypeChange}
               />
-              <label htmlFor="checkbox2" className="font-general-sans text-xl font-medium cursor-pointer">Get a Quote</label>
+              <label htmlFor="checkbox2" className="font-general-sans text-xl font-medium cursor-pointer">Request a Quote</label>
             </div>
           </div>
 

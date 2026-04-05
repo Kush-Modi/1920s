@@ -3,9 +3,8 @@ import ShortForm from './ShortForm';
 import { Link } from 'react-router-dom';
 
 const logos = [
-  { name: "Facebook", src: "/icons/facebook.svg", link: "https://facebook.com" },
-  { name: "Linkedin", src: "/icons/linkedin.svg", link: "https://linkedin.com" },
-  { name: "Twitter", src: "/icons/twitter.svg", link: "https://twitter.com" },
+  { name: "Instagram", src: "/icons/instagram.svg", link: "https://www.instagram.com/nineteen.twentys?igsh=ano3ZzlmeXkwbHJv" },
+  { name: "Linkedin", src: "/icons/linkedin.svg", link: "https://www.linkedin.com/company/nineteentwentys/" },
 ];
 
 const links = [
@@ -43,7 +42,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-12 lg:gap-24">
+            <div className="w-full lg:w-1/3 grid grid-cols-2 gap-12 lg:gap-12">
                 <div className="space-y-6">
                     <h4 className="font-boska text-2xl font-medium">Quick Links</h4>
                     <ul className="space-y-4">
@@ -61,11 +60,7 @@ export default function Footer() {
                     <div className="text-lg text-gray-medium space-y-4 font-general-sans">
                         <p className="flex flex-col">
                             <span className="text-xs uppercase tracking-widest opacity-50 mb-1">Email</span>
-                            hello@nineteentwentys.com
-                        </p>
-                        <p className="flex flex-col">
-                            <span className="text-xs uppercase tracking-widest opacity-50 mb-1">Phone</span>
-                            +1 (555) 1920-2024
+                            contactnineteentwentys@gmail.com
                         </p>
                     </div>
                 </div>

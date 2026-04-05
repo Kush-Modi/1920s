@@ -10,7 +10,7 @@ const menuitems = [
 ];
 
 const navButton = {
-  href: "https://github.com/manulthanura/nineteentwentys",
+  href: "/#contact",
   label: "Request a quote",
 };
 
@@ -56,26 +56,32 @@ export default function Navbar({ hideOnTop = false }: NavbarProps) {
             <img src="/icons/nineteentwentys_logo_black.png" className="h-6 w-auto ml-4 opacity-90" alt="nineteentwentys" />
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-8">
-            {menuitems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-black font-boska text-xl font-medium decoration-black/10 underline-offset-8 transition-all hover:underline"
-              >
-                {item.label}
-              </a>
-            ))}
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center gap-4">
             <a className="btn-primary py-3 px-6 text-base" href={navButton.href}>
               {navButton.label}
             </a>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-xl hover:bg-black/5"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16"/>
+                </svg>
+              )}
+            </button>
           </div>
 
           {/* Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl hover:bg-black/5"
+            className="lg:hidden p-2 rounded-xl hover:bg-black/5 cursor-pointer"
             aria-expanded={isOpen}
           >
             {isOpen ? (
@@ -90,8 +96,8 @@ export default function Navbar({ hideOnTop = false }: NavbarProps) {
           </button>
         </header>
 
-        {/* Mobile Menu */}
-        <div className={`lg:hidden px-8 pb-6 ${isOpen ? 'block' : 'hidden'}`}>
+        {/* Menu (Desktop & Mobile) */}
+        <div className={`px-8 pb-6 ${isOpen ? 'block' : 'hidden'}`}>
           <ul className="flex flex-col gap-4">
             {menuitems.map((item) => (
               <li key={item.label}>
@@ -106,7 +112,7 @@ export default function Navbar({ hideOnTop = false }: NavbarProps) {
             ))}
           </ul>
           <a
-            className="btn-primary py-3 px-6 text-base mt-4 inline-block"
+            className="btn-primary py-3 px-6 text-base mt-4 inline-block lg:hidden"
             href={navButton.href}
           >
             {navButton.label}
